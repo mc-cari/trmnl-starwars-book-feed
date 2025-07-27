@@ -1,0 +1,23 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: 
+polling_verb: GET
+polling_url: https://rsstojson-lake.vercel.app/api/rss?url=https://www.starwarsnewsnet.com/category/books-comics/feed
+polling_headers: ''
+polling_body: 
+id: 126815
+custom_fields:
+- keyname: desc1
+  name: Star Wars Books News
+  field_type: author_bio
+  description: Showcases the latest Star Wars comics and book news. Each news article includes its image and a summary powered by ChatGPT.
+  github_url: https://github.com/mc-cari
+  email_address: mauriciocari2@gmail.com
+- keyname: openai_api_key
+  name: OpenAI API Key
+  field_type: string
+  description: Account API Key
+name: Star Wars Books News
+refresh_interval: 60

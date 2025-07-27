@@ -1,0 +1,55 @@
+<div class="view">
+  <div class="layout">
+    <div class="flex flex--col flex--center-x stretch">
+      <div class="flex flex--col w--full">
+        <div class="flex flex--row flex--center-y">
+          <div class="flex flex--center-x">
+            <div class="article-image image-dither image-loading" id="image-horiz" style="width: 150px; height: 70px; object-fit: cover; border-radius: 6px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666;">
+              Loading...
+            </div>
+          </div>
+          
+          <span class="title stretch flex flex--center-y px--2" style="font-size: 0.95em;">{{ items[0].title }}</span>
+        </div>
+
+        <div class="flex flex--row flex--center-y w--full">
+          <div class="value text--left text--gray-1 value--xxsmall">
+            {{ items[0].pubDate | date: "%b %d, %Y" }}
+          </div>
+          
+          <div class="flex flex--row stretch flex--center-y gap--medium">
+            {% if items[0].category %}
+              {% for cat in items[0].category limit:2 %}
+                <span class="bg--gray-6 text--black value value--xxsmall text-stroke text-stroke--medium px--1 py--1">{{ cat }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      
+        <span class="description clamp--4" id="summary-horiz" style="font-size: 0.85em;">
+          Generating summary...
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="title_bar">
+    <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg" />
+    <span class="title">Star Wars Books News</span>
+  </div>
+</div>
+
+<script>
+  const articleUrls = [
+    "{{ items[0].link }}"
+  ];
+
+  articleUrls.forEach((url, index) => {
+    if (url) {
+      setTimeout(() => {
+        extractImageFromArticle(url, `image-horiz`);
+        generateSummary(url, `summary-horiz`, 4);
+      }, index * 900); 
+    }
+  });
+</script>
