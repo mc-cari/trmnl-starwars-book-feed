@@ -11,6 +11,7 @@ watch:
 
 # values of custom fields (defined in src/settings.yml)
 custom_fields: {
+  openai_api_key:
 }
 
 # override variables
